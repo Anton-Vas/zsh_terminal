@@ -49,15 +49,8 @@ local user_host="${PR_USER}%F{red}@%f${PR_HOST}"
 local current_dir="%B%F{blue}%~%f%b"
 local gen_line="%F{grey}${(r:$COLUMNS::.:)}%f"
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}<"
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}<branch:"
 ZSH_THEME_GIT_PROMPT_SUFFIX=">%f"
-
-# UI conditions
-if [ -z "$git_branch" ]
-then
-  echo "git_branch is empty"
-  git_branch="%F{yellow}~%f"
-fi
 
 # UI combined
 local user_info="${red_arr_one}${red_beg}${user_host}${red_end}${red_beg}${current_dir}${red_end}"
