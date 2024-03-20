@@ -32,12 +32,16 @@ local git_branch='$(git_prompt_info)'
 local return_code="%(?..%F{red}%? ↵%f)"
 local red_arr_one="%F{grey}╭─%f"
 local red_arr_two="%F{grey}╰─%f%F{red}ᐅ%f" # ⮞ᐳᗒᐅᐉ
+local red_arr_tree="%F{grey}│%f "
+local folder_icon="%F{grey}🗁 %f" # pth 🖿 🗁 🗀
+local user_icon="%F{grey}🖳 %f" # usr ♻ ♲ 🖳
+local git_icon="%F{grey}⌥ %f" # git ↻ ⌥ ⎇ ⎌ ⎘
 local red_beg="%F{red}[%f"
 local red_end="%F{red}]%f"
 local red_div="%F{red}:%f"
 local user_host="${PR_USER}%F{red}@%f${PR_HOST}"
 local current_dir="%B%F{blue}%~%f%b"
-local gen_line="%F{grey}${(r:$COLUMNS::┄:)}%f"
+local gen_line="%F{red}${(r:$COLUMNS::/\:)}%f"    # ░ ┄ ─ ▿ ▽
 # ┈ ꒔
 
 #~~~~ GIT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -47,8 +51,8 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%F{yellow} <%f"
 
 # parse_git_dirty()
 
-ZSH_THEME_GIT_PROMPT_DIRTY="%F{red}⮿%f"
-ZSH_THEME_GIT_PROMPT_CLEAN="%F{green}✔%f"
+ZSH_THEME_GIT_PROMPT_DIRTY="%F{red}☒%f" # ☒ ⮿
+ZSH_THEME_GIT_PROMPT_CLEAN="%F{green}☑%f"         # ☑ ✔
 
 # git_prompt_status()
 
@@ -75,12 +79,14 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%F{green}✔%f"
 # ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$fg_bold[white]%}]%{$reset_color%}"
 
 #~~~~ UI combined ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-local user_info="${red_arr_one}${red_beg}${user_host}${red_end}${red_beg}${current_dir}${red_end}"
-local git_info="%F{grey}│%f ${red_beg}%F{grey}git%f${red_div}${git_branch}${red_end}"
+local user_info="${red_arr_one}${red_beg}${user_icon}${red_div}${user_host}${red_end}"
+local path_info="${red_arr_tree}${red_beg}${folder_icon}${red_div}${current_dir}${red_end}" # 🖿 🗁 🗀
+local git_info="${red_arr_tree}${red_beg}${git_icon}${red_div}${git_branch}${red_end}"
 
 #~~~~ Prompt UI ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 PROMPT="${gen_line}
 ${user_info}
+${path_info}
 ${git_info}
 ${red_arr_two}$PR_PROMPT "
 RPROMPT="${return_code}"
