@@ -34,25 +34,25 @@ local red_arr_one="%F{grey}╭─%f"
 local red_arr_two="%F{grey}╰─%f%F{red}ᐅ%f" # ⮞ᐳᗒᐅᐉ
 local red_arr_tree="%F{grey}│%f "
 local folder_icon="%F{grey}🗁 %f" # pth 🖿 🗁 🗀
-local user_icon="%F{grey}🖳 %f" # usr ♻ ♲ 🖳
+local user_icon="%F{grey}🖳 %f" # usr ♻ 🖳 🕱 🕶
 local git_icon="%F{grey}⌥ %f" # git ↻ ⌥ ⎇ ⎌ ⎘
 local red_beg="%F{red}[%f"
 local red_end="%F{red}]%f"
 local red_div="%F{red}:%f"
 local user_host="${PR_USER}%F{red}@%f${PR_HOST}"
 local current_dir="%B%F{blue}%~%f%b"
-local gen_line="%F{red}${(r:$COLUMNS::/\:)}%f"    # ░ ┄ ─ ▿ ▽
+local gen_line="%F{red}${(r:$COLUMNS::- :)}%f"    # ┄ ─ - ˅
 # ┈ ꒔
 
 #~~~~ GIT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # git_prompt_info()
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}> "
-ZSH_THEME_GIT_PROMPT_SUFFIX="%F{yellow} <%f"
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}❯ " # ▶ ▷ ❯
+ZSH_THEME_GIT_PROMPT_SUFFIX="%F{yellow} ❮%f" # ◀ ◁ ❮
 
 # parse_git_dirty()
 
 ZSH_THEME_GIT_PROMPT_DIRTY="%F{red}☒%f" # ☒ ⮿
-ZSH_THEME_GIT_PROMPT_CLEAN="%F{green}☑%f"         # ☑ ✔
+ZSH_THEME_GIT_PROMPT_CLEAN="%F{green}☑%f" # ☑ ✔
 
 # git_prompt_status()
 
