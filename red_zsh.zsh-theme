@@ -41,7 +41,7 @@ local red_end="%F{red}]%f"
 local red_div="%F{red}:%f"
 local user_host="${PR_USER}%F{red}@%f${PR_HOST}"
 local current_dir="%B%F{blue}%~%f%b"
-local gen_line="%F{red}${(r:$COLUMNS::- :)}%f"    # ┄ ─ - ˅
+local gen_line="%F{red}> ${(r:$COLUMNS-4::~ :)} <%f"    # ┄ ~ ─ - ˅
 # ┈ ꒔
 
 #~~~~ GIT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
