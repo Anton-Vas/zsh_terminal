@@ -41,8 +41,8 @@ local red_end="%F{red}]%f"
 local red_div="%F{red}:%f"
 local user_host="${PR_USER}%F{red}@%f${PR_HOST}"
 local current_dir="%B%F{blue}%~%f%b"
-local gen_line="%F{red}> ${(r:$COLUMNS-4::~ :)} <%f"    # ┄ ~ ─ - ˅
-# ┈ ꒔
+local gen_line="%F{red}> ${(r:$COLUMNS-4::~ :)} <%f"    # ┄ ~ ─ - ˅ ┈ ꒔
+local new_line=""
 
 #~~~~ GIT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # git_prompt_info()
@@ -84,7 +84,8 @@ local path_info="${red_arr_tree}${red_beg}${folder_icon}${red_div}${current_dir}
 local git_info="${red_arr_tree}${red_beg}${git_icon}${red_div}${git_branch}${red_end}"
 
 #~~~~ Prompt UI ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-PROMPT="${gen_line}
+PROMPT="${new_line}
+${new_line}
 ${user_info}
 ${path_info}
 ${git_info}
