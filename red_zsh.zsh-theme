@@ -30,6 +30,7 @@ fi
 #~~~~ UI prototypes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 local git_branch='$(git_prompt_info)'
 local return_code="%(?..%F{red}%? ↵%f)"
+local gray_ine="%F{grey}──────────────────────────────────────────────────────%f%F{red}ᐊ%f"
 local red_arr_one="%F{grey}╭─%f"
 local red_arr_two="%F{grey}╰─%f%F{red}ᐅ%f" # ⮞ᐳᗒᐅᐉ
 local red_arr_tree="%F{grey}│%f "
@@ -79,13 +80,12 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%F{green}☑%f" # ☑ ✔
 # ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$fg_bold[white]%}]%{$reset_color%}"
 
 #~~~~ UI combined ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-local user_info="${red_arr_one}${red_beg}${user_icon}${red_div}${user_host}${red_end}"
-local path_info="${red_arr_tree}${red_beg}${folder_icon}${red_div}${current_dir}${red_end}" # 🖿 🗁 🗀
+local user_info="${red_arr_one}${red_beg}${user_icon}${red_div}${user_host}${red_end}${gray_ine}"
+local path_info="${red_arr_tree}${red_beg}${folder_icon}${red_div}${current_dir}${red_end}"
 local git_info="${red_arr_tree}${red_beg}${git_icon}${red_div}${git_branch}${red_end}"
 
 #~~~~ Prompt UI ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 PROMPT="${new_line}
-${new_line}
 ${user_info}
 ${path_info}
 ${git_info}
